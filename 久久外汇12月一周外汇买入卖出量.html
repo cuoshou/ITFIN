@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="gb2312">
+    <title>久久外汇12月一周外汇买入卖出量</title>
+</head>
+<body>
+    <!-- 为ECharts准备一个具备大小（宽高）的Dom -->
+    <div id="main" style="height:400px"></div>
+    <!-- ECharts单文件引入 -->
+    <script src="http://echarts.baidu.com/build/dist/echarts-all.js" charset="utf-8"></script>
+    <script type="text/javascript">
+        // 基于准备好的dom，初始化echarts图表
+        var myChart = echarts.init(document.getElementById('main')); 
+        
+        var option = {
+            title : {
+				text: '久久外汇12月一周外汇买入卖出量（单位：万美元）',
+				subtext: ''
+			},
+			tooltip : {
+				trigger: 'axis'
+			},
+			legend: {
+				data:['卖出','买入']
+			},
+			toolbox: {
+				show : true,
+				feature : {
+					mark : {show: true},
+					dataView : {show: true, readOnly: false},
+					magicType : {show: true, type: ['line', 'bar']},
+					restore : {show: true},
+					saveAsImage : {show: true}
+				}
+			},
+			calculable : true,
+			xAxis : [
+				{
+					type : 'category',
+					data : ['12-16','12-17','12-18','12-19','12-20','12-21','12-22']
+				}
+			],
+			yAxis : [
+				{
+					type : 'value'
+				}
+			],
+			series : [
+				{
+					name:'卖出',
+					type:'bar',
+					data:[669.3, 168.7, 2911.0, 2306.0, 6015.1, 3956.6, 5442.2, 46.1],
+					markPoint : {
+						data : [
+							{type : 'max', name: '最大值'},
+							{type : 'min', name: '最小值'}
+						]
+					},
+					markLine : {
+						data : [
+							{type : 'average', name: '平均值'}
+						]
+					}
+				},
+				{
+					name:'买入',
+					type:'bar',
+					data:[411.4, 160.5, 3380.1, 2855.4, 3590.3, 4934.6, 4235.6, 116.9],
+					markPoint : {
+						data : [
+							{type : 'max', name: '最大值'},
+							{type : 'min', name: '最小值'}
+						]
+					},
+				  markLine : {
+						data : [
+							{type : 'average', name : '平均值'}
+						]
+					}
+				}
+			]
+        };
+
+        // 为echarts对象加载数据 
+        myChart.setOption(option); 
+    </script>
+</body>
